@@ -27,18 +27,35 @@ public class analyzise
 		  {
 			e.printStackTrace();		 
 		  }
-		  System.out.print("\n\nReport 1" );
-		  MakeReport1 mr1 =  new MakeReport1();
-		  mr1.MakeReport(f.pars,fromDate,toDate);
-		  
-		  System.out.print("\n\nReport 2: " );
-		  MakeReport2 mr2 =  new MakeReport2();
-		  mr2.MakeReport(f.pars,fromDate,toDate);
-		  
-		  System.out.print("\n\nReport 3: " );
-		  MakeReport3 mr3 =  new MakeReport3();
-		  mr3.MakeReport(f.pars,fromDate,toDate);
-		  
+		  System.out.print("\n\nReport "+args[2]+"\n");
+		  switch(args[2])
+		  {
+			  case "1":
+			  {
+				  IMakeReport<Report1> report = new MakeReport1();
+				  report.MakeReport(f.pars,fromDate,toDate);
+				  Report1 rep = report.ReturnReport();
+				  System.out.println(rep.list1);
+				  break;
+			  }
+			  case "2":
+			  {  
+				  IMakeReport<Report2> report = new MakeReport2();
+				  report.MakeReport(f.pars,fromDate,toDate);
+				  Report2 rep = report.ReturnReport();
+				  System.out.println(rep.sum);
+				  break;
+			  }
+			  case "3":
+			  {
+				  IMakeReport<Report3> report = new MakeReport3();
+				  report.MakeReport(f.pars,fromDate,toDate);
+				  Report3 rep = report.ReturnReport();
+				  System.out.println(rep.l.getBytes()+" : "+ rep.l.getRequest());
+				  break;
+			  }
+			  default:{System.out.print("Error" );break;}
+		  }
 		 
 	  }
 }

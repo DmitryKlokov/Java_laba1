@@ -7,8 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class MakeReport1 
+public class MakeReport1 implements IMakeReport<Report1>
 {	
+	Report1 report = new Report1();
+	@Override
 	public void MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate)
 	{
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -45,6 +47,11 @@ public class MakeReport1
 				list1.remove(list1.size()-1);
 			}
 		}
-		System.out.println(list1);
+		report.list1 = list1;
+	}
+	@Override
+	public Report1 ReturnReport()
+	{
+		return report;
 	}
 }
