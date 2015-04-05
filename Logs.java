@@ -1,5 +1,3 @@
-package java_laba1;
-
 import java.util.Date;
 
 public class Logs 
@@ -39,5 +37,4 @@ public class Logs
 	public void setBytes(long bytes) {
 		this.bytes = bytes;
 	}
-
 }

@@ -1,11 +1,10 @@
-package java_laba1;
-
 import java.util.ArrayList;
 
 public class FileParser implements IFileParser 
 {
-	private IParser parser;//  = new Parser();
-	private IWriter writer; // = new Writer();
+	private IParser parser;
+	private IWriter writer;
+	public ArrayList<Logs> pars = new ArrayList<Logs>();
 	public FileParser(IParser parser, IWriter writer )
 	{
 		this.parser = parser;
@@ -15,7 +14,7 @@ public class FileParser implements IFileParser
 	{
 		IReader reader = new Reader();
 		ArrayList<String> text= reader.read_file("c:/access_log_Aug95", Integer.parseInt(args1), Integer.parseInt(args2) );
-		ArrayList<Logs> pars = parser.parsing(text);
-		writer.recordWrite("c:/универ/test.txt", pars); 		
+		pars = parser.parsing(text);
+		writer.recordWrite("c:/учеба/test.txt", pars); 		
 	}
 }

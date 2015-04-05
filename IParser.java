@@ -1,5 +1,3 @@
-package java_laba1;
-
 import java.util.ArrayList;
 
 public interface IParser 
