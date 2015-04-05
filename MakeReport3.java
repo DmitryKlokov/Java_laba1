@@ -3,9 +3,8 @@ import java.util.Date;
 
 public class MakeReport3 implements IMakeReport<Report3>
 {
-	Report3 report = new Report3();
 	@Override
-	public void MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate)
+	public Report3 MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate,Report3 report)
 	{		
 		Logs l = new Logs();
 		int max=0;
@@ -18,10 +17,6 @@ public class MakeReport3 implements IMakeReport<Report3>
 			}
 		}
 		report.l = l;
-	}
-	@Override
-	public Report3 ReturnReport()
-	{
 		return report;
 	}
 }

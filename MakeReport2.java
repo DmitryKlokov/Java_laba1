@@ -3,9 +3,8 @@ import java.util.ArrayList;
 
 public class MakeReport2 implements IMakeReport<Report2>
 {
-	Report2 report = new Report2();
 	@Override
-	public void MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate)
+	public Report2 MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate,Report2 report)
 	{
 		int sum = 0;
 		
@@ -17,10 +16,6 @@ public class MakeReport2 implements IMakeReport<Report2>
 			}
 		}
 		report.sum = sum;
-	}
-	@Override
-	public Report2 ReturnReport()
-	{
 		return report;
 	}
 }

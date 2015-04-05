@@ -32,25 +32,25 @@ public class analyzise
 		  {
 			  case "1":
 			  {
+				  Report1 rep = new Report1();
 				  IMakeReport<Report1> report = new MakeReport1();
-				  report.MakeReport(f.pars,fromDate,toDate);
-				  Report1 rep = report.ReturnReport();
+				  rep = report.MakeReport(f.pars,fromDate,toDate,rep);
 				  System.out.println(rep.list1);
 				  break;
 			  }
 			  case "2":
 			  {  
+				  Report2 rep = new Report2();
 				  IMakeReport<Report2> report = new MakeReport2();
-				  report.MakeReport(f.pars,fromDate,toDate);
-				  Report2 rep = report.ReturnReport();
+				  rep = report.MakeReport(f.pars,fromDate,toDate,rep);
 				  System.out.println(rep.sum);
 				  break;
 			  }
 			  case "3":
 			  {
+				  Report3 rep = new Report3();
 				  IMakeReport<Report3> report = new MakeReport3();
-				  report.MakeReport(f.pars,fromDate,toDate);
-				  Report3 rep = report.ReturnReport();
+				  rep = report.MakeReport(f.pars,fromDate,toDate,rep);
 				  System.out.println(rep.l.getBytes()+" : "+ rep.l.getRequest());
 				  break;
 			  }

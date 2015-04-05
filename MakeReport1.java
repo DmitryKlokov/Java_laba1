@@ -9,9 +9,8 @@ import java.util.Map;
 
 public class MakeReport1 implements IMakeReport<Report1>
 {	
-	Report1 report = new Report1();
 	@Override
-	public void MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate)
+	public Report1 MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate, Report1 report)
 	{
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		for(Logs element: list)
@@ -48,10 +47,6 @@ public class MakeReport1 implements IMakeReport<Report1>
 			}
 		}
 		report.list1 = list1;
-	}
-	@Override
-	public Report1 ReturnReport()
-	{
 		return report;
 	}
 }
