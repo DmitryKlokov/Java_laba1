@@ -1,16 +1,16 @@
-import java.util.Date;
-import java.util.ArrayList;
 
-public class MakeReport2 implements IMakeReport<Report2>
+
+public class MakeReport2 implements IMakeReport<Report2,Params>
 {
 	@Override
-	public Report2 MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate,Report2 report)
+	public Report2 MakeReport(Params param)
 	{
+		Report2 report = new Report2();
 		int sum = 0;
 		
-		for(Logs element: list)
+		for(Logs element: param.list)
 		{
-			if(element.getData().after(fromDate) && element.getData().before(toDate))
+			if(element.getData().after(param.fromDate) && element.getData().before(param.toDate))
 			{
 				sum+=element.getBytes();
 			}

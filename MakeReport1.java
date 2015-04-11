@@ -1,4 +1,4 @@
-import java.util.Date;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,15 +7,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class MakeReport1 implements IMakeReport<Report1>
+public class MakeReport1 implements IMakeReport<Report1,Params>
 {	
 	@Override
-	public Report1 MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate, Report1 report)
+	public Report1 MakeReport(Params param)
 	{
+		Report1 report = new Report1();
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		for(Logs element: list)
+		for(Logs element: param.list)
 		{
-			if(element.getData().after(fromDate) && element.getData().before(toDate))
+			if(element.getData().after(param.fromDate) && element.getData().before(param.toDate))
 			{
 				if(map.containsKey(element.getHost()))
 				{
@@ -27,11 +28,11 @@ public class MakeReport1 implements IMakeReport<Report1>
 				}
 			}
 		}
-		List<Map.Entry<String, Integer>> list1 = new ArrayList<Map.Entry<String, Integer>>();
-		list1.addAll(map.entrySet());
+		List<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>();
+		list.addAll(map.entrySet());
 		
 			
-		Collections.sort(list1, new Comparator<Map.Entry<String, Integer>>()
+		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>()
 				{
 			         @Override
 			         public int compare(Map.Entry<String, Integer> el1, Map.Entry<String, Integer> el2)
@@ -39,14 +40,14 @@ public class MakeReport1 implements IMakeReport<Report1>
 			        	 return el2.getValue().compareTo(el1.getValue());
 			         }
 		        });
-		if(list1.size()>5)
+		if(list.size()>5)
 		{
-			while(list1.size()>5)
+			while(list.size()>5)
 			{
-				list1.remove(list1.size()-1);
+				list.remove(list.size()-1);
 			}
 		}
-		report.list1 = list1;
+		report.list = list;
 		return report;
 	}
 }

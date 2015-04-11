@@ -10,10 +10,10 @@ public class FileParser implements IFileParser
 		this.parser = parser;
 		this.writer = writer;
 	}
-	public void parse(String args1, String args2)
+	public void parse(String args1, String args2,String args3)
 	{
 		IReader reader = new Reader();
-		ArrayList<String> text= reader.read_file("c:/access_log_Aug95", Integer.parseInt(args1), Integer.parseInt(args2) );
+		ArrayList<String> text= reader.read_file(args3, Integer.parseInt(args1), Integer.parseInt(args2) );
 		pars = parser.parsing(text);
 		writer.recordWrite("c:/учеба/test.txt", pars); 		
 	}

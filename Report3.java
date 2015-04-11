@@ -1,4 +1,4 @@
 public class Report3 
 {
-	public Logs l;
+	public Logs log;
 }

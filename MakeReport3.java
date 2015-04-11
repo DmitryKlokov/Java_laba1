@@ -1,22 +1,22 @@
-import java.util.ArrayList;
-import java.util.Date;
 
-public class MakeReport3 implements IMakeReport<Report3>
+
+public class MakeReport3 implements IMakeReport<Report3,Params>
 {
 	@Override
-	public Report3 MakeReport(ArrayList<Logs> list, Date  fromDate, Date toDate,Report3 report)
-	{		
-		Logs l = new Logs();
+	public Report3 MakeReport(Params param)
+	{	
+		Report3 report = new Report3();
+		Logs log = new Logs();
 		int max=0;
-		for(Logs element: list)
+		for(Logs element: param.list)
 		{
-			if(element.getData().after(fromDate) && element.getData().before(toDate)&&max<element.getBytes())
+			if(element.getData().after(param.fromDate) && element.getData().before(param.toDate)&&max<element.getBytes())
 			{
 				max = (int) element.getBytes();
-				l = element;
+				log = element;
 			}
 		}
-		report.l = l;
+		report.log = log;
 		return report;
 	}
 }
